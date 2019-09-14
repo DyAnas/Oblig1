@@ -16,6 +16,7 @@ public class Oblig1 {
     public static int maks(int[] a) {
         throw new NotImplementedException();
 
+
     }
 
     public static int ombyttinger(int[] a) {
