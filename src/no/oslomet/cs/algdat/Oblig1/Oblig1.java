@@ -186,18 +186,105 @@ public class Oblig1 {
 
 
     ///// Oppgave 9 //////////////////////////////////////
-    public static int[] tredjeMin(int[] a) {
-        throw new NotImplementedException();
+    public static int[] tredjeMin(int[] a)
+    {
+        int n = a.length;     // tabellens lengde
+
+        if (n < 3)     // må ha minst tre verdier
+        {
+            throw new NoSuchElementException("a.length(" + n + ") < 3!");
+        }
+
+        int m = 0;     // m er posisjonen til min verdi
+        int nm = 1;    // nm er posisjonen til nest min verdi
+        int tm = 2;    // tm er posisjonen til tredje min verdi
+
+
+        if (a[nm] < a[m])
+        {
+            m = 1;
+            nm = 0;
+        }
+
+        if (a[tm] < a[m])
+        {
+            int temp = tm;
+            tm = m;
+            m = temp;
+        }
+
+        if (a[tm] < a[nm])
+        {
+            int temp = tm;
+            tm = nm;
+            nm = temp;
+        }
+
+        int minVerdi = a[m];                // min verdi
+        int nestminVerdi = a[nm];           // nest min verdi
+        int tredjeminVerdi = a[tm];         // tredje min verdi
+
+        for (int i = 3; i < n; i++)
+        {
+            int verdi = a[i];
+
+            if (verdi < tredjeminVerdi)
+            {
+                if (verdi < nestminVerdi)
+                {
+                    if (verdi < minVerdi)
+                    {
+                        tm = nm;
+                        tredjeminVerdi = nestminVerdi;
+
+                        nm = m;
+                        nestminVerdi = minVerdi;
+
+                        m = i;
+                        minVerdi = verdi;
+                    }
+                    else  // verdi >= minverdi && verdi < nestminverdi
+                    {
+                        tm = nm;
+                        tredjeminVerdi = nestminVerdi;
+
+                        nm = i;
+                        nestminVerdi = verdi;
+                    }
+                }
+                else // verdi >= nestminverdi && verdi < tredjeminverdi
+                {
+                    tm = i;
+                    tredjeminVerdi = verdi;
+                }
+            }
+
+        }
+
+        return new int[] { m, nm, tm };
     }
 
     ///// Oppgave 10 //////////////////////////////////////
-    public static int bokstavNr(char bokstav) {
-        throw new NotImplementedException();
-    }
+    public static boolean inneholdt(String a, String b){
 
-    public static boolean inneholdt(String a, String b) {
-        throw new NotImplementedException();
-    }
+        for(int i = 0; i < a.length(); i++){
 
+            char c = a.charAt(i);
+
+            if(b.indexOf(c) == -1){
+
+                String s = "Ordet "+a+" er ikke inneholdt i "+b;
+                System.out.println(s);
+                return false;
+
+            }
+
+        }
+
+        String s = "Ordet "+a+" er inneholdt i "+b;
+        System.out.println(s);
+
+        return true;
+    }
 
 }  // Oblig1
