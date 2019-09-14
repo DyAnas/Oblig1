@@ -14,13 +14,48 @@ public class Oblig1 {
 
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
-        throw new NotImplementedException();
-
+        if (a.length < 1)
+            throw new NoSuchElementException("Listen er tom");
+        for (int i = 0; i < a.length - 1; i++) {
+            if (a[i] > a[i + 1]) {
+                bytt(a,i,i+1);
+            }
+        }
+        return a[a.length-1];
     }
 
-    public static int ombyttinger(int[] a) {
-        throw new NotImplementedException();
+    //Oppgave 1 b)
+    public static int ombyttinger(int[] a){
+        if (a.length < 1)
+            throw new NoSuchElementException("Listen er tom");
+        int count = 0;
+        for (int i = 0; i < a.length - 1; i++) {
+            if (a[i] > a[i + 1]) {
+                bytt(a,i,i+1);
+                count++;
+            }
+        }
+        return count;
     }
+
+    public static void bytt(int[] a, int fra, int til){
+        int temp = a[fra];
+        a[fra] = a[til];
+        a[til] = temp;
+    }
+
+    /*  Sporsmal oppgave 1:
+
+      i)·Nar blir det flest ombyttinger?
+         Nar det storste tallet er forst i arrayet.
+
+      ii)·Nar blir det faerrest?
+          Nar det storste tallet er sist i arrayet.
+
+      iii)·Hvor mange blir det i gjennomsnitt?
+           Det vil variere utifra hvor mange tall arrayet inneholder.
+
+      */
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
@@ -71,8 +106,22 @@ public class Oblig1 {
     }
 
     ///// Oppgave 4 //////////////////////////////////////
-    public static void delsortering(int[] a) {
-        throw new NotImplementedException();
+    public static void delsortering(int[] a){
+        int countO = 0;
+        //Oddetall sorteres til venstre
+        for(int i = 0; i < a.length; i++){
+            if(a[i]%2 != 0){
+                bytt(a,countO,i);
+                countO++;
+            }
+        }
+        if (countO == 0 || countO == a.length){
+            Arrays.sort(a);
+        }
+        else {
+            Arrays.sort(a,0,countO);
+            Arrays.sort(a,countO,a.length);
+        }
     }
 
     ///// Oppgave 5 //////////////////////////////////////
