@@ -1,19 +1,18 @@
-# AlgDat2019
+# Obligatorisk oppgave 1 i Algoritmer og Datastrukturer
 
+Denne oppgaven er en innlevering i Algoritmer og Datastrukturer. 
+Oppgaven er levert av følgende studenter:
+* Anas Mohammad Dyab, S331357, s331357@oslomet.no
+* Ine Camilla Nordnes, 
+* Mohammad Ali Zedan, 
+* Majdi Alali,
+* Adnan Ali, 
 
-Source code for the algorithms and data structures course (DATS2300 / ITPE2300) at Oslo Metropolitan University.
+# Arbeidsfordeling
 
-Most of the source code corresponds to algorithms in the [course lecture notes](https://www.cs.hioa.no/~ulfu/appolonius/index.html)
-
-# Setup and tricks
-Import this as into intellij as a VCS project from existing code.
-
-To generate test classes, go to one of your classes (the class name), and press [alt]+[enter]. Then select "Create test", and add a Junit 5 test class. Remember to also add Junit 5.x to your classpath.    
- 
-
-# License
-
-This code is released under public domain license. 
-
-Read more here:
-https://creativecommons.org/share-your-work/public-domain/cc0/
+I oppgaven har vi hatt følgende arbeidsfordeling:
+* Ine har hatt hovedansvar for oppgave 1 og 4. 
+* Anas har hatt hovedansvar for oppgave 2 og 3.
+* Mohammad Ali har hatt hovedansvar for oppgave 5 og 6. 
+* Majdi har hatt hovedansvar for oppgave 7 og 8. 
+* Adnan har hatt hovedansvar for oppgave 9 og 10. 
