@@ -18,27 +18,27 @@ public class Oblig1 {
             throw new NoSuchElementException("Listen er tom");
         for (int i = 0; i < a.length - 1; i++) {
             if (a[i] > a[i + 1]) {
-                bytt(a,i,i+1);
+                bytt(a, i, i + 1);
             }
         }
-        return a[a.length-1];
+        return a[a.length - 1];
     }
 
     //Oppgave 1 b)
-    public static int ombyttinger(int[] a){
+    public static int ombyttinger(int[] a) {
         if (a.length < 1)
             throw new NoSuchElementException("Listen er tom");
         int count = 0;
         for (int i = 0; i < a.length - 1; i++) {
             if (a[i] > a[i + 1]) {
-                bytt(a,i,i+1);
+                bytt(a, i, i + 1);
                 count++;
             }
         }
         return count;
     }
 
-    public static void bytt(int[] a, int fra, int til){
+    public static void bytt(int[] a, int fra, int til) {
         int temp = a[fra];
         a[fra] = a[til];
         a[til] = temp;
@@ -73,20 +73,19 @@ public class Oblig1 {
                 }
                 m = a[i];
             } else {
-                throw new IllegalStateException ("Array er ikke sortert i stigende rekkfølge");
+                throw new IllegalStateException("Array er ikke sortert i stigende rekkfølge");
             }
 
         }
-        return count ;
+        return count;
     }
-
 
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
         int count = a.length;
 
-        int verdi1 =0 ;
+        int verdi1 = 0;
         int verdi2 = 0;
         if (a.length < 1) {
             return 0;
@@ -106,33 +105,68 @@ public class Oblig1 {
     }
 
     ///// Oppgave 4 //////////////////////////////////////
-    public static void delsortering(int[] a){
+    public static void delsortering(int[] a) {
         int countO = 0;
         //Oddetall sorteres til venstre
-        for(int i = 0; i < a.length; i++){
-            if(a[i]%2 != 0){
-                bytt(a,countO,i);
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] % 2 != 0) {
+                bytt(a, countO, i);
                 countO++;
             }
         }
-        if (countO == 0 || countO == a.length){
+        if (countO == 0 || countO == a.length) {
             Arrays.sort(a);
-        }
-        else {
-            Arrays.sort(a,0,countO);
-            Arrays.sort(a,countO,a.length);
+        } else {
+            Arrays.sort(a, 0, countO);
+            Arrays.sort(a, countO, a.length);
         }
     }
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
-        throw new NotImplementedException();
+        if (a.length == 0) {
+            return;
+        }
+        char sist;
+
+
+        sist = a[a.length - 1];
+
+        for (int j = a.length - 1; j > 0; j--) {
+
+            a[j] = a[j - 1];
+        }
+
+        a[0] = sist;
+        System.out.print(Arrays.toString(a));
     }
 
+
     ///// Oppgave 6 //////////////////////////////////////
-    public static void rotasjon(char[] a, int k) {
-        throw new NotImplementedException();
+    public static void rotasjon(char[] a, int n) {
+       if(a.length == 0){
+           return ;
+       }
+        char forst = a[0];
+
+        for (int i = -n, j = 0; i != 0; i -= n) {
+
+            if (i < 0)
+                i += a.length;
+            a[j] = a[i];
+
+            j = i;
+        }
+
+        a[n] = forst;
+        System.out.print(Arrays.toString(a));
+
     }
+
+
+
+
+
 
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
@@ -164,5 +198,6 @@ public class Oblig1 {
     public static boolean inneholdt(String a, String b) {
         throw new NotImplementedException();
     }
+
 
 }  // Oblig1
