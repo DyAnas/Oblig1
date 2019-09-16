@@ -199,9 +199,28 @@ public class Oblig1 {
     }
 
     /// 7b)
-    public static String flett(String... s) {
-        throw new NotImplementedException();
+    public static String flett(String... l) {
+        int str=0;
+        if(l.length==0) return "";
+
+        StringBuilder obj= new StringBuilder();
+
+        for(int x = 0 ; x<l.length;x++){
+            if(l[x].length()>str) {
+                str=l[x].length();
+            }
+        }
+
+        for(int i=1; i<=str;i++){
+            for(int j=0; j<l.length; j++){
+                if(i<=l[j].length()){
+                    obj.append(l[j].charAt(i-1));
+                }
+            }
+        }
+        return obj.toString();
     }
+
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
