@@ -5,7 +5,7 @@ Oppgaven er levert av følgende studenter:
 * Anas Mohammad Dyab, S331357, s331357@oslomet.no
 * Ine Camilla Nordnes, 
 * Mohammad Ali Zedan, 
-* Majdi Alali,
+* Majdi Alali, s346421, s346321@oslomet.no
 * Adnan Ali, 
 
 # Arbeidsfordeling
