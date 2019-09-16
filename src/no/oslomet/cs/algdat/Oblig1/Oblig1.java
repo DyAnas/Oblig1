@@ -267,24 +267,29 @@ public class Oblig1 {
     ///// Oppgave 10 //////////////////////////////////////
     public static boolean inneholdt(String a, String b){
 
-        for(int i = 0; i < a.length(); i++){
+        if (a.length() > b.length()) return false;
 
-            char c = a.charAt(i);
+        char[] a1 = a.toCharArray();
+        char[] b1 = b.toCharArray();
 
-            if(b.indexOf(c) == -1){
 
-                String s = "Ordet "+a+" er ikke inneholdt i "+b;
-                System.out.println(s);
-                return false;
+        Arrays.sort(a1);
+        Arrays.sort(b1);
 
+        int i = 0;
+        int j = 0;
+
+        while (i < a1.length && j < b1.length)
+        {
+            if (a1[i] > b1[j]) j++;
+            else if (a1[i] == b1[j])
+            {
+                i++; j++;
             }
-
+            else return false;
         }
 
-        String s = "Ordet "+a+" er inneholdt i "+b;
-        System.out.println(s);
-
-        return true;
+        return i == a1.length;
     }
 
 }  // Oblig1
