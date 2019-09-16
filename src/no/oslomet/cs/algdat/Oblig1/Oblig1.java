@@ -171,7 +171,31 @@ public class Oblig1 {
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        throw new NotImplementedException();
+        String resultat="";
+        int minstlength= (s.length()<t.length())?s.length():t.length();
+        int indeks;
+
+        if(s.length()== 0) {resultat=t; return resultat; }
+
+        else if(t.length()== 0) { resultat=s; return resultat; }
+
+        for(indeks=0;indeks<minstlength;indeks++){
+            resultat=resultat+s.charAt(indeks)+t.charAt(indeks);
+        }
+
+        if(s.length()>t.length()){
+            for(;indeks<s.length();++indeks){
+                resultat= resultat+s.charAt(indeks);
+            }
+        }
+        else if(s.length()<t.length()){
+
+            for(;indeks<t.length();++indeks){
+                resultat= resultat+t.charAt(indeks);
+            }
+
+        }
+        return resultat;
     }
 
     /// 7b)
@@ -181,7 +205,28 @@ public class Oblig1 {
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
-        throw new NotImplementedException();
+
+        int  []temp_a = new int[a.length];
+        int[]indeks_a=new int[a.length];
+        int minst_indeks=0;
+        //int  []temp_a =  a. Arrays.copyOf(a, a.length);
+        for(int e=0; e<a.length;e++){temp_a[e]=a[e];}//kopiere a til en temp ararry
+
+        if(a.length==0 ) return a;
+        for(int j=0; j<temp_a.length;j++){
+
+            for(int i=0; i<temp_a.length;i++){
+                if(temp_a[minst_indeks] >temp_a[i]) minst_indeks=i; //&& minst_indeks!=i      lagre indeksen til miste verdi
+            }
+            indeks_a[j]=minst_indeks; //legge   minsteverdis indeksen til arrayen som skal retuneres
+            temp_a[minst_indeks]= 2147483647; //bytte verdi til  minsteverdis indeksen slik at vi
+        }
+
+        return indeks_a;
+
+
+
+
     }
 
 
