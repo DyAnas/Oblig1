@@ -1,6 +1,6 @@
 package no.oslomet.cs.algdat.Oblig1;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 ////// Testprogram for Oblig 1 - 2019 ////////////////////////
 
@@ -18,6 +18,8 @@ Oblig 1 sendes inn!
 ///// Oppdatert 3. september 2019 ///////////////
 
 import java.util.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Alle tester i denne klassen skal passere når du leverer inn.
