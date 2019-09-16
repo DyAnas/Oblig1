@@ -171,7 +171,31 @@ public class Oblig1 {
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        throw new NotImplementedException();
+        String resultat="";
+        int minstlength= (s.length()<t.length())?s.length():t.length();
+        int indeks;
+
+        if(s.length()== 0) {resultat=t; return resultat; }
+
+        else if(t.length()== 0) { resultat=s; return resultat; }
+
+        for(indeks=0;indeks<minstlength;indeks++){
+            resultat=resultat+s.charAt(indeks)+t.charAt(indeks);
+        }
+
+        if(s.length()>t.length()){
+            for(;indeks<s.length();++indeks){
+                resultat= resultat+s.charAt(indeks);
+            }
+        }
+        else if(s.length()<t.length()){
+
+            for(;indeks<t.length();++indeks){
+                resultat= resultat+t.charAt(indeks);
+            }
+
+        }
+        return resultat;
     }
 
     /// 7b)
