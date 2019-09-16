@@ -273,8 +273,8 @@ public class Oblig1 {
         char[] b1 = b.toCharArray();
 
 
-        Arrays.sort(a1);    // kvikksortering
-        Arrays.sort(b1);    // kvikksortering
+        Arrays.sort(a1);
+        Arrays.sort(b1);
 
         int i = 0;
         int j = 0;
@@ -289,10 +289,7 @@ public class Oblig1 {
             else return false;
         }
 
-        if(i == a1.length){
-            return true;
-        }
-        return false;
+        return i == a1.length;
     }
 
 }  // Oblig1
