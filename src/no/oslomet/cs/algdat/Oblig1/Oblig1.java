@@ -2,8 +2,6 @@ package no.oslomet.cs.algdat.Oblig1;
 
 ////// Løsningsforslag Oblig 1 - 2019 ////////////////////////
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
@@ -47,10 +45,10 @@ public class Oblig1 {
     /*  Sporsmal oppgave 1:
 
       i)·Nar blir det flest ombyttinger?
-         Nar det storste tallet er forst i arrayet.
+         Nar det tabellen er sortert synkynde.
 
       ii)·Nar blir det faerrest?
-          Nar det storste tallet er sist i arrayet.
+          Nar tabellen er sortert stigende.
 
       iii)·Hvor mange blir det i gjennomsnitt?
            Det vil variere utifra hvor mange tall arrayet inneholder.
