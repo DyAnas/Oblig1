@@ -3,10 +3,10 @@
 Denne oppgaven er en innlevering i Algoritmer og Datastrukturer. 
 Oppgaven er levert av følgende studenter:
 * Anas Mohammad Dyab, S331357, s331357@oslomet.no
-* Ine Camilla Nordnes, 
-* Mohammad Ali Zedan, 
+* Ine Camilla Nordnes, s330325, s330325@oslomet.no
+* Mohammad Ali Zedan, s330156, s330156@oslomet.no
 * Majdi Alali, s346421, s346321@oslomet.no
-* Adnan Ali, 
+* Adnan Ali, s331363, s331363@oslomet.no
 
 # Arbeidsfordeling
 
