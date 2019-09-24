@@ -103,6 +103,54 @@ public class Oblig1 {
     }
 
     ///// Oppgave 4 //////////////////////////////////////
+    public static int parter(int []a, int v,int h, int skilleverdi){
+        while (true)                                  // stopper når v > h
+        {
+            while (v <= h && a[v] < skilleverdi) v++;   // h er stoppverdi for v
+            while (v <= h && a[h] >= skilleverdi) h--;  // v er stoppverdi for h
+
+            if (v < h) bytt(a,v++,h--);                 // bytter om a[v] og a[h]
+            else  return v;  // a[v] er nåden første som ikke er mindre enn skilleverdi
+        }
+    }
+    private static int sparter0(int []a, int v, int h, int indeks){
+        bytt(a,indeks,h); // indeks er skilleverdi
+        int pos = parter(a,v,h-1,a[h]); //partisjoner a[v:h-1]
+        bytt(a,pos,h);// bytt for åfå skilleverdi på rett plass
+        return pos;
+    }
+    private static void kvikksortering0(int[] a, int v, int h)  // en privat metode
+    {
+        if (v >= h) return;  // a[v:h] er tomt eller har maks ett element
+        int k = sparter0(a, v, h, (v + h)/2);  // bruker midtverdien
+        kvikksortering0(a, v, k - 1);     // sorterer intervallet a[v:k-1]
+        kvikksortering0(a, k + 1, h);     // sorterer intervallet a[k+1:h]
+    }
+    public static void fratilKontroll(int tablengde, int fra, int til)
+    {
+        if (fra < 0)                                  // fra er negativ
+            throw new ArrayIndexOutOfBoundsException
+                    ("fra(" + fra + ") er negativ!");
+
+        if (til > tablengde)                          // til er utenfor tabellen
+            throw new ArrayIndexOutOfBoundsException
+                    ("til(" + til + ") > tablengde(" + tablengde + ")");
+
+        if (fra > til)                                // fra er større enn til
+            throw new IllegalArgumentException
+                    ("fra(" + fra + ") > til(" + til + ") - illegalt intervall!");
+    }
+
+    public static void kvikksortering(int[] a, int fra, int til) // a[fra:til>
+    {
+        fratilKontroll(a.length, fra, til);  // sjekker når metoden er offentlig
+        kvikksortering0(a, fra, til - 1);  // v = fra, h = til - 1
+    }
+
+    public static void kvikksortering(int[] a)   // sorterer hele tabellen
+    {
+        kvikksortering0(a, 0, a.length - 1);
+    }
     public static void delsortering(int[] a) {
         int countO = 0;
         //Oddetall sorteres til venstre
@@ -113,10 +161,10 @@ public class Oblig1 {
             }
         }
         if (countO == 0 || countO == a.length) {
-            Arrays.sort(a);
+            kvikksortering (a);
         } else {
-            Arrays.sort(a, 0, countO);
-            Arrays.sort(a, countO, a.length);
+            kvikksortering(a, 0, countO);
+            kvikksortering(a, countO, a.length);
         }
     }
 
@@ -141,23 +189,19 @@ public class Oblig1 {
 
 
     ///// Oppgave 6 //////////////////////////////////////
-    public static void rotasjon(char[] a, int n) {
-        if (a.length == 0) {
-            return;
-        }
-        char forst = a[0];
+    public static void bytt(char[] a, int i, int j)
+    {
+        char temp = a[i]; a[i] = a[j]; a[j] = temp;
+    }
+    public static void rotasjon(char[] a, int d) {
+        int n = a.length;
+        if (n < 2) return;                                     // tomt eller en verdi
 
-        for (int i = -n, j = 0; i != 0; i -= n) {
+        if ((d %= n) < 0) d += n;                              // motsatt vei?
 
-            if (i < 0)
-                i += a.length;
-            a[j] = a[i];
-
-            j = i;
-        }
-
-        a[n] = forst;
-        System.out.print(Arrays.toString(a));
+        for (int v = 0, h = n - 1; v < h; bytt(a, v++, h--));  // snur a[a:n>
+        for (int v = 0, h = d - 1; v < h; bytt(a, v++, h--));  // snur a[0:d>
+        for (int v = d, h = n - 1; v < h; bytt(a, v++, h--));  // snur a[d:n>
 
     }
 
@@ -317,6 +361,41 @@ public class Oblig1 {
     }
 
     ///// Oppgave 10 //////////////////////////////////////
+    public static int parter1(char []a, int v,int h, int skilleverdi){
+        while (true)                                  // stopper når v > h
+        {
+            while (v <= h && a[v] < skilleverdi) v++;   // h er stoppverdi for v
+            while (v <= h && a[h] >= skilleverdi) h--;  // v er stoppverdi for h
+
+            if (v < h) bytt(a,v++,h--);                 // bytter om a[v] og a[h]
+            else  return  v;  // a[v] er nåden første som ikke er mindre enn skilleverdi
+        }
+    }
+    private static int sparter1(char []a, int v, int h, int indeks){
+        bytt(a,indeks,h); // indeks er skilleverdi
+       int pos = parter1(a,v, (h-1),a[h]); //partisjoner a[v:h-1]
+        bytt(a,pos,h);// bytt for åfå skilleverdi på rett plass
+        return pos;
+    }
+
+   public static void kvikksortering11(char[] a, int d, int s)  // en privat metode
+    {
+        if (d >= s) return;  // a[v:h] er tomt eller har maks ett element
+        int k = sparter1(a, d, s, (d + s)/2);  // bruker midtverdien
+        kvikksortering1(a, d, k - 1);     // sorterer intervallet a[v:k-1]
+        kvikksortering1(a, k + 1, s);     // sorterer intervallet a[k+1:h]
+    }
+
+    public static void kvikksortering1(char[] a, int fra, int til) // a[fra:til>
+    {
+      //  fratilKontroll(a.length, fra, til);  // sjekker når metoden er offentlig
+        kvikksortering1(a, fra, til - 1);  // v = fra, h = til - 1
+    }
+
+    public static void kvikksortering1(char[] a)   // sorterer hele tabellen
+    {
+        kvikksortering1(a, 0, a.length - 1);
+    }
     public static boolean inneholdt(String a, String b) {
 
         if (a.length() > b.length()) return false;
@@ -325,8 +404,8 @@ public class Oblig1 {
         char[] b1 = b.toCharArray();
 
 
-        Arrays.sort(a1);
-        Arrays.sort(b1);
+        kvikksortering1(a1);
+        kvikksortering1(b1);
 
         int i = 0;
         int j = 0;
