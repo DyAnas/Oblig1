@@ -34,6 +34,10 @@
           <option name="url" value="https://github.com/Mahmoud2406/Fjellsport.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/Mahmoud2406/Webapplication_Accenture.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="C:\Users\adnan\OneDrive - OsloMet\Semester 6" />
@@ -47,8 +51,5 @@
         <option value="3" />
       </list>
     </option>
-  </component>
-  <component name="VcsApplicationSettings">
-    <option name="SHOW_LST_WORD_DIFFERENCES" value="false" />
   </component>
 </application>
